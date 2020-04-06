@@ -15,11 +15,12 @@ public class XorGate extends Gate {
         nand3 = new NandGate();
         nand4 = new NandGate();
 
-        nand1.connect(0,nand0);
-        nand3.connect(0,nand2);
-        nand4.connect(0,nand1);
-        nand4.connect(1,nand3);
+        nand1.connect(0, nand0);
+        nand3.connect(0, nand2);
+        nand4.connect(0, nand1);
+        nand4.connect(1, nand3);
     }
+
     @Override
     public boolean read() {
         return nand4.read();
@@ -29,15 +30,14 @@ public class XorGate extends Gate {
     public void connect(int inputIndex, Emitter emitter) {
         if (inputIndex < 0 || inputIndex > 1) {
             throw new IndexOutOfBoundsException(inputIndex);
-        }
-        else if (inputIndex == 0){
-            nand0.connect(0,emitter);
-            nand0.connect(1,emitter);
-            nand3.connect(1,emitter);
-        }else{
-            nand2.connect(0,emitter);
-            nand2.connect(1,emitter);
-            nand1.connect(1,emitter);
+        } else if (inputIndex == 0) {
+            nand0.connect(0, emitter);
+            nand0.connect(1, emitter);
+            nand3.connect(1, emitter);
+        } else {
+            nand2.connect(0, emitter);
+            nand2.connect(1, emitter);
+            nand1.connect(1, emitter);
 
         }
 
