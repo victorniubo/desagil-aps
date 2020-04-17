@@ -1,4 +1,5 @@
 package br.pro.hashi.ensino.desagil.aps.view;
+
 import br.pro.hashi.ensino.desagil.aps.model.Gate;
 
 import javax.swing.*;
@@ -6,9 +7,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.LinkedList;
 
-public class View extends JPanel implements ActionListener{
+public class View extends JPanel implements ActionListener {
     private final JComboBox<Gate> menu;
     private GateView gateView;
+
     public View(LinkedList<Gate> model) {
         menu = new JComboBox<>();
         for (Gate gate : model) {
@@ -19,6 +21,7 @@ public class View extends JPanel implements ActionListener{
         addGateView(0);
         menu.addActionListener(this);
     }
+
     private void addGateView(int index) {
 
         // 1. Usar o índice para pegar a calculadora do menu.
@@ -30,6 +33,7 @@ public class View extends JPanel implements ActionListener{
         // 3. Adicionar essa representação gráfica no JPanel.
         add(gateView);
     }
+
     @Override
     public void actionPerformed(ActionEvent event) {
         remove(gateView);

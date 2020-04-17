@@ -2,15 +2,14 @@ package br.pro.hashi.ensino.desagil.aps.view;
 
 import br.pro.hashi.ensino.desagil.aps.model.Gate;
 import br.pro.hashi.ensino.desagil.aps.model.Switch;
+
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.net.URL;
 
-public class GateView extends JPanel implements ActionListener, MouseListener{
+public class GateView extends JPanel implements ActionListener, MouseListener {
     private final Gate gate;
 
     private final Switch switch0;
@@ -20,7 +19,7 @@ public class GateView extends JPanel implements ActionListener, MouseListener{
     private final JCheckBox in1;
     private final JCheckBox out;
 
-    public GateView (Gate gate){
+    public GateView(Gate gate) {
         this.gate = gate;
 
         switch0 = new Switch();
@@ -38,7 +37,7 @@ public class GateView extends JPanel implements ActionListener, MouseListener{
 
         add(in0Label);
         add(in0);
-        if (gate.getInputSize() > 1){
+        if (gate.getInputSize() > 1) {
             add(in1Label);
             add(in1);
             in1.addActionListener(this);
@@ -56,31 +55,28 @@ public class GateView extends JPanel implements ActionListener, MouseListener{
     private void update() {
         boolean saida;
 
-        if (in0.isSelected()){
+        if (in0.isSelected()) {
             switch0.turnOn();
-        }
-        else{
+        } else {
             switch0.turnOff();
         }
 
-        if (in1.isSelected()){
+        if (in1.isSelected()) {
             switch1.turnOn();
-        }
-        else {
+        } else {
             switch1.turnOff();
         }
 
         saida = gate.read();
 
-        gate.connect(0,switch0);
-        if (gate.getInputSize() > 1){
+        gate.connect(0, switch0);
+        if (gate.getInputSize() > 1) {
             gate.connect(1, switch1);
         }
 
-        if (saida == true){
+        if (saida) {
             out.setSelected(true);
-        }
-        else{
+        } else {
             out.setSelected(false);
         }
     }
