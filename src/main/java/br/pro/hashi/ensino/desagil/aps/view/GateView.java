@@ -114,6 +114,4 @@ public class GateView extends JPanel implements ActionListener, MouseListener{
     public void mouseExited(MouseEvent mouseEvent) {
 
     }
-
-    private
 }
