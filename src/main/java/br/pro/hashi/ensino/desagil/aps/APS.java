@@ -6,7 +6,7 @@ import br.pro.hashi.ensino.desagil.aps.view.View;
 import javax.swing.*;
 import java.util.LinkedList;
 
-public class APS2 {
+public class APS {
     public static void main(String[] args) {
 
 
@@ -34,3 +34,4 @@ public class APS2 {
 
 
 }
+
